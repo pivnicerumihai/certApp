@@ -7,11 +7,13 @@ const CustomTextInput = ({
   defaultValue,
   trailing,
   onChangeText,
+  secureTextEntry,
 }) => {
   const [showTrailing, setShowTrailing] = useState(false);
 
   return (
     <TextInput
+      secureTextEntry={secureTextEntry}
       style={style}
       helperText={helperText}
       defaultValue={defaultValue}

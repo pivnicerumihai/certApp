@@ -98,7 +98,7 @@ const EngineerDetails = ({}) => {
         />
         <CustomTextInput
           style={{ margin: 10, width: "80%" }}
-          helperText="Engineer Name   "
+          helperText="Engineer Name"
           defaultValue={electricalNo}
           onChangeText={handleElectricalNoChange}
           trailing={() => <Icon name="check-circle" color="green" size={18} />}
@@ -139,6 +139,7 @@ const EngineerDetails = ({}) => {
           helperText="Password"
           defaultValue={password}
           onChangeText={handlePasswordChange}
+          secureTextEntry={true}
           trailing={() =>
             passwordError ? (
               <Icon name="times-circle" color="red" size={18} />
@@ -155,6 +156,7 @@ const EngineerDetails = ({}) => {
         <CustomTextInput
           style={{ margin: 10, width: "80%" }}
           helperText="Confirm Password"
+          secureTextEntry={true}
           defaultValue={confirmPassword}
           onChangeText={handleConfirmPasswordChange}
           trailing={() =>

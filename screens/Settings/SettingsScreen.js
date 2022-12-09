@@ -1,9 +1,7 @@
-import React, { useState } from "react";
-
-import { ReactFragment } from "react";
+import react, { useState } from "react";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import CustomButton from "../../components/CustomButton";
-import { View, Text, StyleSheet, Switch } from "react-native";
+import { View, Text, StyleSheet, Switch, Dimensions } from "react-native";
 import {
   Divider,
   Snackbar,
@@ -11,6 +9,11 @@ import {
 } from "@react-native-material/core";
 import EngineerDetails from "./EngineerDetails/EngineerDetails";
 import CompanyDetails from "./CompanyDetails/CompanyDetails";
+import { ScrollView } from "react-native-web";
+
+// get Screen Dimensions
+const screenWidth = Dimensions.get("window").width;
+const screenHeight = Dimensions.get("window").height;
 
 const SettingsScreen = () => {
   const [showSnackbar, setShowSnackbar] = useState(false);
@@ -30,14 +33,13 @@ const SettingsScreen = () => {
       }, 1000);
     }, 1000);
   };
-
   const toggleSwitch = () => {
     setShowCompanySettings((previousState) => !previousState);
   };
 
   return (
-    <View style={styles.container}>
-      <React.Fragment>
+    <ScrollView>
+      <View style={styles.container}>
         {/* Switch */}
         <div style={{ alignSelf: "center", display: "flex", margin: 10 }}>
           <Text
@@ -68,41 +70,46 @@ const SettingsScreen = () => {
 
         {/* Inputs to Show*/}
         {!showCompanySettings ? <EngineerDetails /> : <CompanyDetails />}
-
-        {showSnackbar ? (
-          <Snackbar
-            message="Changes were Saved Successfully"
-            style={{
-              position: "absolute",
-              bottom: 20,
-              alignSelf: "center",
-              zIndex: 1,
-            }}
-          />
-        ) : null}
-        <CustomButton
-          title={loading ? <ActivityIndicator color="white" /> : "Save"}
-          color="white"
-          style={{
-            position: "absolute",
-            bottom: 15,
-            width: "90%",
-          }}
-          onPress={handleSaveChanges}
-          leading={
-            loading ? null : <Icon name="save" color="white" size={20} />
-          }
+      </View>
+      {showSnackbar ? (
+        <Snackbar
+          message="Your changes have been saved"
+          style={styles.snackBar}
         />
-      </React.Fragment>
-    </View>
+      ) : null}
+      <CustomButton
+        title={loading ? <ActivityIndicator color="white" /> : "Save"}
+        titleStyle={styles.titleStyle}
+        color="white"
+        style={{
+          position: "absolute",
+          bottom: 15,
+          width: "90%",
+        }}
+        onPress={handleSaveChanges}
+        leading={loading ? null : <Icon name="save" color="white" size={16} />}
+      />
+    </ScrollView>
   );
 };
+
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#687bfc",
+    backgroundColor: "#9ca9fc",
     flexDirection: "column",
     justifyContent: "start",
-    height: "100%",
+    height: screenHeight, // Container with defined height
+  },
+  titleStyle: {
+    color: "white",
+    fontSize: 16,
+  },
+  snackBar: {
+    position: "absolute",
+    start: 16,
+    end: 16,
+    bottom: "5%",
+    zIndex: 1,
   },
 });
 

@@ -8,14 +8,22 @@ const HomeScreen = ({ navigation }) => {
     "Customers",
     "Site Addresses",
     "Settings",
+    "Help & Support",
   ];
 
-  const iconNames = ["file-invoice", "users", "map-marker-alt", "toolbox"];
+  const iconNames = [
+    "file-invoice",
+    "users",
+    "map-marker-alt",
+    "toolbox",
+    "info-circle",
+  ];
   const screens = [
     "RecordSelection",
     "RecordSelection",
     "RecordSelection",
     "Settings",
+    "Support",
   ];
 
   return (
@@ -39,7 +47,7 @@ const HomeScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#687bfc",
+    backgroundColor: "#9ca9fc",
     flexDirection: "column",
     justifyContent: "start",
     height: "100%",
