@@ -80,7 +80,6 @@ const SettingsScreen = () => {
       <CustomButton
         title={loading ? <ActivityIndicator color="white" /> : "Save"}
         titleStyle={styles.titleStyle}
-        color="white"
         style={{
           position: "absolute",
           bottom: 15,

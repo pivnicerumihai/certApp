@@ -5,6 +5,7 @@ import RecordSelectionScreen from "./screens/NewRecordScreen/RecordSelectionScre
 import SettingsScreen, { Settings } from "./screens/Settings/SettingsScreen";
 import ContactUs from "./screens/Contact/contactus";
 import { StyleSheet } from "react-native";
+import CustomersListScreen from "./screens/Customers/CustomersListScreen";
 
 const Stack = createStackNavigator();
 
@@ -31,6 +32,16 @@ export default function App() {
             headerTitleStyle: styles.headerTitle,
           }}
           component={RecordSelectionScreen}
+        />
+        <Stack.Screen
+          name="CustomersList"
+          options={{
+            title: "Customers",
+            headerStyle: styles.navbar,
+            headerTintColor: "white",
+            headerTitleStyle: styles.headerTitle,
+          }}
+          component={CustomersListScreen}
         />
         <Stack.Screen
           name="Settings"

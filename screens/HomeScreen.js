@@ -20,7 +20,7 @@ const HomeScreen = ({ navigation }) => {
   ];
   const screens = [
     "RecordSelection",
-    "RecordSelection",
+    "CustomersList",
     "RecordSelection",
     "Settings",
     "Support",

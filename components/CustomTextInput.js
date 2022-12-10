@@ -8,17 +8,21 @@ const CustomTextInput = ({
   trailing,
   onChangeText,
   secureTextEntry,
+  placeholder,
+  leading,
 }) => {
   const [showTrailing, setShowTrailing] = useState(false);
 
   return (
     <TextInput
+      leading={leading}
       secureTextEntry={secureTextEntry}
       style={style}
       helperText={helperText}
       defaultValue={defaultValue}
       trailing={showTrailing ? trailing : null}
       showTrailing={showTrailing}
+      placeholder={placeholder}
       onChangeText={(text) => {
         // Show the trailing icon when the user inputs text
         setShowTrailing(true);
