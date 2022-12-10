@@ -48,23 +48,39 @@ const RecordList = ({ text, data, recordType }) => {
       data={
         text === "" || text === null
           ? data
-          : data.filter(
-              (record) =>
-                record.firstName.includes(text) ||
-                record.surname.includes(text) ||
-                record.building.includes(text) ||
-                record.street.includes(text) ||
-                record.region.includes(text) ||
-                record.postcode.includes(text) ||
-                record.town.includes(text) ||
-                record.firstName.toLowerCase().includes(text) ||
-                record.surname.toLowerCase().includes(text) ||
-                record.building.toLowerCase().includes(text) ||
-                record.street.toLowerCase().includes(text) ||
-                record.region.toLowerCase().includes(text) ||
-                record.postcode.toLowerCase().includes(text) ||
-                record.town.toLowerCase().includes(text)
-            )
+          : data.filter((record) => {
+              if (recordType === "customer") {
+                return (
+                  record.firstName.includes(text) ||
+                  record.surname.includes(text) ||
+                  record.firstName.toLowerCase().includes(text) ||
+                  record.surname.toLowerCase().includes(text) ||
+                  record.building.includes(text) ||
+                  record.street.includes(text) ||
+                  record.region.includes(text) ||
+                  record.postcode.includes(text) ||
+                  record.town.includes(text) ||
+                  record.building.toLowerCase().includes(text) ||
+                  record.street.toLowerCase().includes(text) ||
+                  record.region.toLowerCase().includes(text) ||
+                  record.postcode.toLowerCase().includes(text) ||
+                  record.town.toLowerCase().includes(text)
+                );
+              } else if (recordType === "property") {
+                return (
+                  record.building.includes(text) ||
+                  record.street.includes(text) ||
+                  record.region.includes(text) ||
+                  record.postcode.includes(text) ||
+                  record.town.includes(text) ||
+                  record.building.toLowerCase().includes(text) ||
+                  record.street.toLowerCase().includes(text) ||
+                  record.region.toLowerCase().includes(text) ||
+                  record.postcode.toLowerCase().includes(text) ||
+                  record.town.toLowerCase().includes(text)
+                );
+              }
+            })
       }
       renderItem={renderItem}
       keyExtractor={(item) => item.id}

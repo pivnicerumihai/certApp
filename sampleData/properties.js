@@ -1,7 +1,7 @@
 const properties = [
   {
     id: 1,
-    building: 23,
+    building: "23",
     street: "Sandhills",
     region: "Wallington",
     town: "London",
@@ -12,7 +12,7 @@ const properties = [
   },
   {
     id: 2,
-    building: 46,
+    building: "46",
     street: "Green Lane",
     region: "Croydon",
     town: "London",
@@ -23,7 +23,7 @@ const properties = [
   },
   {
     id: 3,
-    building: 57,
+    building: "57",
     street: "Maple Street",
     region: "Bromley",
     town: "London",
@@ -34,7 +34,7 @@ const properties = [
   },
   {
     id: 4,
-    building: 82,
+    building: "82",
     street: "Park Avenue",
     region: "Sutton",
     town: "London",
@@ -45,7 +45,7 @@ const properties = [
   },
   {
     id: 5,
-    building: 21,
+    building: "21",
     street: "Victoria Road",
     region: "Merton",
     town: "London",
@@ -56,7 +56,7 @@ const properties = [
   },
   {
     id: 6,
-    building: 34,
+    building: "34",
     street: "High Street",
     region: "Richmond",
     town: "London",
@@ -67,7 +67,7 @@ const properties = [
   },
   {
     id: 7,
-    building: 19,
+    building: "19",
     street: "Church Road",
     region: "Kingston",
     town: "London",
@@ -78,7 +78,7 @@ const properties = [
   },
   {
     id: 8,
-    building: 29,
+    building: "29",
     street: "Park Road",
     region: "Hammersmith",
     town: "London",
@@ -89,7 +89,7 @@ const properties = [
   },
   {
     id: 9,
-    building: 45,
+    building: "45",
     street: "Queens Road",
     region: "Fulham",
     town: "London",
