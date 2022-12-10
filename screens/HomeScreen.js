@@ -21,7 +21,7 @@ const HomeScreen = ({ navigation }) => {
   const screens = [
     "RecordSelection",
     "CustomersList",
-    "RecordSelection",
+    "PropertiesList",
     "Settings",
     "Support",
   ];

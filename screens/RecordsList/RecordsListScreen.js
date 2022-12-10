@@ -13,7 +13,9 @@ import RecordList from "../../components/RecordList";
 
 const screenHeight = Dimensions.get("window").height;
 
-const CustomersListScreen = () => {
+const RecordsListScreen = ({ route }) => {
+  const { placeholder, buttonTitle, data, recordType } = route.params;
+
   const [searchInput, setSearchInput] = useState(null);
 
   const handleChangeText = (text) => {
@@ -27,19 +29,19 @@ const CustomersListScreen = () => {
           <CustomTextInput
             style={styles.textInput}
             onChangeText={handleChangeText}
-            placeholder={"Tap to search for a customer"}
+            placeholder={placeholder}
             leading={<Icon name="search" color="680AEF" size={20} />}
           />
         </View>
         <CustomButton
-          title={"Add New Customer"}
-          style={styles.addCustomerButton}
+          title={buttonTitle}
+          style={styles.addRecordButton}
           titleStyle={styles.textButton}
         />
       </View>
       <ScrollView style={styles.scrollView}>
         <View style={styles.list}>
-          <RecordList text={searchInput} />
+          <RecordList text={searchInput} data={data} recordType={recordType} />
         </View>
       </ScrollView>
     </View>
@@ -61,7 +63,7 @@ const styles = StyleSheet.create({
     width: "90%",
     marginLeft: "5%",
   },
-  addCustomerButton: {
+  addRecordButton: {
     marginTop: 40,
   },
   textButton: {
@@ -83,4 +85,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CustomersListScreen;
+export default RecordsListScreen;

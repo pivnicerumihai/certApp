@@ -12,6 +12,7 @@ const RecordListItem = ({
   titleStyle,
   itemContainerStyle,
   iconColor,
+  recordType,
 }) => {
   return (
     <View style={itemContainerStyle}>
@@ -19,7 +20,7 @@ const RecordListItem = ({
         <Text style={titleStyle}>{itemTitle}</Text>
 
         <View style={styles.addressContainer}>
-          {isAddress === true ? (
+          {recordType === "customer" || recordType === "property" ? (
             <Icon
               style={styles.addressMarker}
               name="map-marker-alt"

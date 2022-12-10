@@ -5,7 +5,9 @@ import RecordSelectionScreen from "./screens/NewRecordScreen/RecordSelectionScre
 import SettingsScreen, { Settings } from "./screens/Settings/SettingsScreen";
 import ContactUs from "./screens/Contact/contactus";
 import { StyleSheet } from "react-native";
-import CustomersListScreen from "./screens/Customers/CustomersListScreen";
+import RecordsListScreen from "./screens/RecordsList/RecordsListScreen";
+import customers from "./sampleData/customers";
+import properties from "./sampleData/properties";
 
 const Stack = createStackNavigator();
 
@@ -41,7 +43,29 @@ export default function App() {
             headerTintColor: "white",
             headerTitleStyle: styles.headerTitle,
           }}
-          component={CustomersListScreen}
+          initialParams={{
+            placeholder: "Tap to search for a customer",
+            buttonTitle: "Add New Customer",
+            data: customers,
+            recordType: "customer",
+          }}
+          component={RecordsListScreen}
+        />
+        <Stack.Screen
+          name="PropertiesList"
+          options={{
+            title: "Properties",
+            headerStyle: styles.navbar,
+            headerTintColor: "white",
+            headerTitleStyle: styles.headerTitle,
+          }}
+          initialParams={{
+            placeholder: "Tap to search for a property",
+            buttonTitle: "Add New Property",
+            data: properties,
+            recordType: "property",
+          }}
+          component={RecordsListScreen}
         />
         <Stack.Screen
           name="Settings"
