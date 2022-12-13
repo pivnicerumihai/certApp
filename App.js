@@ -3,11 +3,15 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import RecordSelectionScreen from "./screens/NewRecordScreen/RecordSelectionScreen";
 import SettingsScreen, { Settings } from "./screens/Settings/SettingsScreen";
-import ContactUs from "./screens/Contact/contactus";
+import ContactUs from "./screens/Contact/ContactUs";
 import { StyleSheet } from "react-native";
 import RecordsListScreen from "./screens/RecordsList/RecordsListScreen";
 import customers from "./sampleData/customers";
 import properties from "./sampleData/properties";
+import recordsCategories from "./sampleData/recordsCategories";
+import CustomerPreview from "./screens/RecordPreview/CustomerPreview";
+import JobAddressPreview from "./screens/RecordPreview/JobAddressPreview";
+import CertificatesScreen from "./screens/CertificatesScreen/CertificatesScreen";
 
 const Stack = createStackNavigator();
 
@@ -24,6 +28,26 @@ export default function App() {
             headerTitleStyle: styles.headerTitle,
           }}
           component={HomeScreen}
+        />
+        <Stack.Screen
+          name="CustomerPreview"
+          options={{
+            title: "Customer",
+            headerStyle: styles.navbar,
+            headerTintColor: "white",
+            headerTitleStyle: styles.headerTitle,
+          }}
+          component={CustomerPreview}
+        />
+        <Stack.Screen
+          name="JobAddressPreview"
+          options={{
+            title: "Customer",
+            headerStyle: styles.navbar,
+            headerTintColor: "white",
+            headerTitleStyle: styles.headerTitle,
+          }}
+          component={JobAddressPreview}
         />
         <Stack.Screen
           name="RecordSelection"
@@ -66,6 +90,33 @@ export default function App() {
             recordType: "property",
           }}
           component={RecordsListScreen}
+        />
+        <Stack.Screen
+          name="certCategories"
+          options={{
+            title: "Certificates Types",
+            headerStyle: styles.navbar,
+            headerTintColor: "white",
+            headerTitleStyle: styles.headerTitle,
+          }}
+          initialParams={{
+            data: recordsCategories,
+            isCategory: true,
+          }}
+          component={CertificatesScreen}
+        />
+        <Stack.Screen
+          name="certTypes"
+          options={{
+            title: "Certificates Types",
+            headerStyle: styles.navbar,
+            headerTintColor: "white",
+            headerTitleStyle: styles.headerTitle,
+          }}
+          initialParams={{
+            isCategory: false,
+          }}
+          component={CertificatesScreen}
         />
         <Stack.Screen
           name="Settings"

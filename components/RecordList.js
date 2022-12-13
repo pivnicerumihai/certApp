@@ -2,14 +2,19 @@ import React, { useState } from "react";
 import { FlatList, StyleSheet } from "react-native";
 import RecordListItem from "./RecordListItem";
 
-const RecordList = ({ text, data, recordType }) => {
+const RecordList = ({ text, data, recordType, navigation }) => {
   const [selectedId, setSelectedId] = useState(null);
-
   const renderItem = ({ item }) => {
     return (
       <RecordListItem
         onPress={() => {
           setSelectedId(item.id);
+
+          if (recordType === "customer") {
+            navigation.navigate("CustomerPreview", { item });
+          } else if (recordType === "property") {
+            navigation.navigate("JobAddressPreview", { item });
+          }
         }}
         itemTitle={
           recordType === "customer" ? item.firstName + " " + item.surname : null

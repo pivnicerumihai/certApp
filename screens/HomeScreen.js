@@ -19,7 +19,7 @@ const HomeScreen = ({ navigation }) => {
     "info-circle",
   ];
   const screens = [
-    "RecordSelection",
+    "certCategories",
     "CustomersList",
     "PropertiesList",
     "Settings",

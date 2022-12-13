@@ -13,9 +13,8 @@ import RecordList from "../../components/RecordList";
 
 const screenHeight = Dimensions.get("window").height;
 
-const RecordsListScreen = ({ route }) => {
+const RecordsListScreen = ({ route, navigation }) => {
   const { placeholder, buttonTitle, data, recordType } = route.params;
-
   const [searchInput, setSearchInput] = useState(null);
 
   const handleChangeText = (text) => {
@@ -41,7 +40,12 @@ const RecordsListScreen = ({ route }) => {
       </View>
       <ScrollView style={styles.scrollView}>
         <View style={styles.list}>
-          <RecordList text={searchInput} data={data} recordType={recordType} />
+          <RecordList
+            text={searchInput}
+            data={data}
+            recordType={recordType}
+            navigation={navigation}
+          />
         </View>
       </ScrollView>
     </View>
@@ -64,7 +68,7 @@ const styles = StyleSheet.create({
     marginLeft: "5%",
   },
   addRecordButton: {
-    marginTop: 40,
+    marginTop: 60,
   },
   textButton: {
     color: "white",
@@ -81,7 +85,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#9ca9fc",
   },
   scrollView: {
-    marginTop: 30,
+    marginTop: 65,
   },
 });
 
